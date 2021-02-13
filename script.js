@@ -126,6 +126,16 @@ const DOM = {
     }
 }
 
+// Dark theme toggle
+
+const dark = document.getElementById('chk')
+
+dark.addEventListener('change', () => {
+    document.body.classList.toggle('dark-theme')
+    console.log('cheguei')
+})
+
+
 //for(let i = 0; i < transactions.length; i++) {
 //    console.log()
 // }

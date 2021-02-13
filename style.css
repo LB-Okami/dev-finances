@@ -2,7 +2,11 @@
     --dark-blue: #363f5f;
     --green: #49aa26;
     --light-green: #3dd705;
-    --red: #e92929
+    --red: #e92929;
+    --github-black: #141516;
+    --github-gray: #161B22;
+    --github-purple: #271052;
+    --github-purple2: #6E40C9;
 }
 
 * {
@@ -11,6 +15,8 @@
     box-sizing: border-box;
 }
 
+
+
 html {
     font-size: 93.75%;
 }
@@ -18,12 +24,21 @@ html {
 body{
     background: #f0f2f5;
     font-family: 'Poppins', sans-serif;
+    transition: background 0.4s linear;
 }
 
 header {
     background: #2d4a22;
     padding: 2rem 0 12rem;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
+    transition: background 0.4 linear;
+    
+}
+
+.imagem-logo {
+    margin-left: 7.8rem;
 }
 
 h2 {
@@ -97,9 +112,104 @@ button:hover {
     opacity: 1;
 }
 
+/*  Dark theme */
+
+body.dark-theme {
+    background: var(--github-black);
+    color: white;
+}
+
+body.dark-theme header {
+    background: var(--github-gray);
+}
+
+body.dark-theme tbody  {
+    background-color: white;
+}
+
+body.dark-theme footer {
+    color: white;
+}
+
+body.dark-theme .slider{
+    color: var(--github-purple);
+}
+
+body.dark-theme .slider:before {
+    background-color: var(--github-purple2);
+}
+
+/* Botão toggle inicial  */ 
+.switch {
+    position: relative;
+    display: flex;
+    width: 60px;
+    height: 34px;
+    margin-right: 4rem;
+    
+}
+
+/*  Esconde o default HTML checkbox */ 
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* O slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--github-purple);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Fazer deixar de ser retangular e ser redondinho */
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+  
+
+
 #logo {
-    color: #fff;    
-    font-weight: 100;
+    color: #fff;   
+    font-weight: 100; 
 }
 
 #balance {
@@ -291,3 +401,4 @@ footer {
         gap: 2rem;
     }
 }
+
